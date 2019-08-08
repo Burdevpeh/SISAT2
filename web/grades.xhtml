@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Course Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            
+            <p:dataTable id="singleDT3" 
+                         var="courseinfo" 
+                         value="#{gradeBean.getAllCourseInfo}"
+                         selectionMode="single" 
+                         selection="#{gradeBean.selectedcourseinfo}"
+                         rowKey="#{courseinfo.id}">
+                    <f:facet name="header">
+                        View Student
+                    </f:facet>
+                <p:ajax event="rowSelect" listener="#{gradeBean.onRowSelect}" update=":form"  />
+                
+        
+                    <p:column headerText="ID:">
+                        <h:outputText value="#{courseinfo.id}" />
+                    </p:column>
+                
+                    <p:column headerText="student no:">
+                        <h:outputText value="#{courseinfo.studentId.id}" />
+                    </p:column>
+                
+                    <p:column headerText="grade">
+                        <h:outputText value="#{courseinfo.grade}" />
+                    </p:column>
+                   
+                    <p:column headerText="course name:">
+                        <h:outputText value="#{courseinfo.courseId.id}" />
+                    </p:column>
+                
+                    <p:column headerText="explanation">
+                        <h:outputText value="#{courseinfo.explanation}" />
+                    </p:column>
+                
+                    <f:facet name="footer">
+                        <p:commandButton  action="#{gradeBean.show()}"
+                                          icon="pi pi-search" value="edit" update=":form:panel1" />
+                    </f:facet>
+            </p:dataTable>
+             <p:outputPanel id="panel1"> 
+                
+                 <p:panelGrid columns="2" rendered="#{gradeBean.renderedpanel}">
+                        <h:outputText value="course id"/>
+                        <p:inputText value="#{gradeBean.selectedcourseinfo.courseId.id}" />
+                        
+                        <h:outputText value="course grade"/>
+                        <p:inputText value="#{gradeBean.selectedcourseinfo.grade}" /> 
+                        
+                        <h:outputText value="student id"/>
+                        <p:inputText value="#{gradeBean.selectedcourseinfo.studentId.id}" placeholder="should not change" />
+                        
+                        <h:outputText value="course explanation"/>
+                        <p:inputText value="#{gradeBean.selectedcourseinfo.explanation}" /> 
+                        
+                       
+   
+
+                </p:panelGrid>
+                                      <p:commandButton icon="ui-icon-pencil" 
+                                     id="editUserBtn" value="save" 
+                                     ajax="true" actionListener="#{gradeBean.updateCourseInfo()}" 
+                                     update=":form:singleDT3 :form:panel1" rendered="#{gradeBean.renderedpanel}" />
+                                      
+
+                                      
+            </p:outputPanel>
+       
+</h:form>
+</h:body>
+</html>

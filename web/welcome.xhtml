@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+
+                <title>Welcome to Atacs</title>
+            
+            </f:facet>
+
+        </h:head>
+
+        <h:form>
+            <center>
+                <h3>ATILIM ÜNİVERSİTESİ ÖĞRENCİ SİSTEMİ</h3>
+            </center>
+    <p:panelMenu>
+        <p:submenu label="Admin" >
+            <p:submenu label="user management">
+               <p:menuitem value="view User" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/viewUsers.xhtml"/>
+               <p:menuitem value="add User" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/addUser.xhtml"/>
+            </p:submenu>
+               <p:submenu label="Add School Memeber">
+                    <p:menuitem value="add Student" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/addStudent.xhtml"/>
+                    <p:menuitem value="add Teacher" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/addStudent.xhtml"/>
+               </p:submenu>
+        </p:submenu>
+        <p:submenu label="Student" >
+            <p:menuitem value="enroll lecture" icon="pi pi-home" url="http://localhost:8080/SISAT2/faces/lecture.xhtml" />
+        </p:submenu>
+        <p:submenu label="Teacher" >
+            <p:menuitem value="view student" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/viewStudent.xhtml"/>
+              
+            <p:menuitem value="start term" icon="pi pi-user-plus" action="manage"/>
+            <p:menuitem value="Grades" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/grades.xhtml"/>  
+            <p:menuitem value="Manage Course" icon="pi pi-user-plus" url="http://localhost:8080/SISAT2/faces/courseManagement.xhtml"/>  
+        </p:submenu>
+    </p:panelMenu>
+   </h:form>
+   </f:view>
+</html>
+

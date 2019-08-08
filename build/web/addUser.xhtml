@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>ADD NEW USER PAGE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form id="form2">
+            <h2>
+                ADD  NEW USER
+            </h2>
+
+            <p:panelGrid columns="2">
+                <p:outputLabel for="idFromFormUser" value="User ID:"/>
+                <p:inputText id="idFromFormUser" value="#{UserBean.idFromFormUser}" placeholder="user ıd"/>                
+
+                <p:outputLabel for="emailFromFrom" value="email"/>
+                <p:inputText id="emailFromFrom" value="#{UserBean.emailFromForm}"/>
+
+                <p:outputLabel for="passFromForm" value="Pass"/>
+                <p:inputText id="passFromForm" value="#{UserBean.passFromForm}"/>
+
+                <p:outputLabel for="nameFromForm" value="Name"/>
+                <p:inputText id="nameFromForm" value="#{UserBean.nameFromForm}"/>
+
+                <p:outputLabel for="surnameFromForm" value="Surname"/>
+                <p:inputText id="surnameFromForm" value="#{UserBean.surnameFromForm}"/>
+
+                <p:outputLabel for="statusFromForm" value="Status:"/>
+                <p:inputText id="statusFromForm" value="#{UserBean.statusFromForm}"/>
+
+                <p:outputLabel for="tcNoFromForm" value="TCNO:"/>
+                <p:inputText id="tcNoFromForm" value="#{UserBean.tcNoFromForm}"/>
+
+                <p:outputLabel for="dobFromForm" value="Date of Birth:"/>
+                <p:calendar id="dobFromForm" value="#{UserBean.dobFromForm}"/> 
+                    
+            </p:panelGrid>
+
+            <p:commandButton value="ADD User" action="#{UserBean.saveUserToDB()}" update="form2" />
+        </h:form>
+    </h:body>
+</html>
